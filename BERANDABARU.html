@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERANDA BARU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <style>
+        .header {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .app-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .navigation a.active {
+            color: #800000;
+        }
+        .navigation a.active::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #800000;
+        }
+
+        .navigation a {
+            position: relative;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .profile span {
+            font-weight: bold; 
+            margin-left: 10px; 
+            color: #000; 
+        }
+        
+        .logout {
+            background-color: #800000;
+            color: white;
+            font-weight: bold;
+        }
+
+        .dashboard {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start;
+            gap: 20px;
+            margin-bottom: 15px;
+            margin-top: 0px; 
+            position: relative;
+        }
+
+        .container {
+            display: flex; 
+            gap: 20px; 
+            margin-top: 30px;
+        }
+
+        .promosi, .voucher {
+            background-color: #FFF; 
+            padding: 10px; 
+            border-radius: 10px; 
+            margin-bottom: 0px;
+            margin: 0;
+        }
+
+        .promosi, .transaction-history {
+            flex: 1; /* Membuat lebar elemen fleksibel sesuai ruang tersedia */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .promo-cards, .voucher-cards {
+            display: flex; 
+            flex-wrap: nowrap; 
+            gap: 15px; 
+            justify-content: space-between;
+            margin-bottom: -10px;
+        }
+
+
+        .promo-card img, .voucher-card img {
+            width: 100%;
+            border-radius: 10px; 
+            object-fit: cover;
+        }
+
+        .voucher{
+            padding-bottom: 30px;
+        }
+
+
+        .promo-card, .voucher-card {
+            background-color: #f7f7f7; 
+            padding: 10px; 
+            border-radius: 8px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #555; 
+            flex: 1 1 250px;
+            box-sizing: border-box; 
+            margin-top: 10px; 
+            min-height: 170px;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            animation: slideInRight 0.5s ease forwards; 
+            width: 100%;
+        }
+
+    </style>
+    
+</head>
+<body class="bg-body-tertiary text-white">
+
+    <!-- Header -->
+    <header class="header d-flex align-items-center justify-content-between p-3 bg-white">
+        <div class="logo d-flex align-items-center">
+            <img src="logo.png" alt="Logo" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+            <span class="app-name" id="appName">Tel-U Finance</span>
+        </div>
+
+        <nav class="navigation d-flex gap-4">
+            <a href="BERANDABARU.html" class="nav-link active">BERANDA</a>
+            <a href="notifikasi.html" class="nav-link">NOTIFIKASI</a>
+            <a href="pengaturan.html" class="nav-link">PENGATURAN</a>
+        </nav>
+
+        <div class="right-section d-flex align-items-center gap-4">
+            <a href="contactus.html" class="contact-us d-flex align-items-center text-dark text-decoration-none" style="font-weight: bold;">
+                <i class="bi bi-chat-left-dots-fill" style="margin-right: 10px; color: green;"></i>CONTACT US
+            </a>
+            <div class="profile d-flex align-items-center">
+                <img src="foto_alya.jpg" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                <span class="font-weight-bold">MAHASISWA</span>
+            </div>
+            <button class="logout btn btn-danger">LOGOUT</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="container" style="display: flex; gap: 20px; margin-top: 30px;">
+        <!-- BAGIAN SIDEBAR -->
+        <aside class="sidebar" style="margin-top: -10px; padding: 10px; border-radius: 10px; background-color: #FFF;">
+            <div class="my-card" style="background-color: #FDF5E6; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 15px; text-align: center; margin-bottom: 20px;">
+                <img src="ktm_alya.jpg" alt="Student Card" class="img-fluid rounded" style="max-width: 100%; border-radius: 8px;">
+            </div>
+
+            <div class="points" style="background-color: #FDF5E6; border-radius: 10px; box-shadow: 0 4px 6px rgb(253, 245, 230); padding: 15px; text-align: center; margin-bottom: 15px;">
+                <p class="mb-2" style="font-weight: bold; color:#000">TOTAL POINT KAMU</p>
+                <div class="point-value d-flex justify-content-center align-items-center">
+                    <i class="bi bi-coin coin-icon" style="color: #f1c40f; font-size: 20px; margin-right: 5px;"></i>
+                    <span class="bold-text" style="font-weight: bold; font-size: 18px; color: #000;">100 POINT</span>
+                </div>
+                <p style="color: #000;">Setara Dengan <br> Rp. 100.000 </p>
+            </div>
+        </aside>
+
+        <!-- Promo dan Voucher-->
+        <section class="dashboard container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="promosi">
+                        <h3 style="font-weight: bold;">Promosi Saat Ini</h3>
+                        <div class="promo-cards">
+                            <div class="promo-card">
+                                <img src="promo1.jpeg" alt="Promo 1" />
+                            </div>
+                            <div class="promo-card">
+                                <img src="promo2.jpeg" alt="Promo 2" />
+                            </div>
+                            <div class="promo-card">
+                                <img src="promo3.jpeg" alt="Promo 3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="voucher">
+                        <h3>Voucher Saat Ini</h3>
+                        <div class="voucher-cards">
+                            <div class="voucher-card">
+                                <img src="voucher1.jpeg" alt="Voucher 1" />
+                            </div>
+                            <div class="voucher-card">
+                                <img src="voucher2.jpeg" alt="Voucher 2" />
+                            </div>
+                            <div class="voucher-card">
+                                <img src="voucher3.jpeg" alt="Voucher 3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</body>
+</html>

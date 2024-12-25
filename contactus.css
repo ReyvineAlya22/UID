@@ -1,0 +1,97 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+    
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+    
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+    
+.app-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+    
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+    
+.navigation a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+}
+    
+.navigation a.active {
+    color: #800000;
+}
+    
+.navigation a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #800000;
+}
+    
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+    
+.contact-us {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+    
+.contact-us img {
+    width: 20px;  
+    height: 20px;
+    color: green;
+}
+    
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+}
+    
+.profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+    
+.logout {
+    padding: 5px 10px;
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
