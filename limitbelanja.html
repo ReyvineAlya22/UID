@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limit Belanja</title>
+  <head>
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <!-- <link
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        rel="stylesheet"> -->
+
+    <!-- File CSS Kustom -->
+    <!-- <link href="beranda.css" rel="stylesheet"> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins;
+    background-color: #F5F5F5;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+    
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+    
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+    
+.app-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+    
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+    
+.navigation a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+}
+    
+.navigation a.active {
+    color: #800000;
+}
+    
+.navigation a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #800000;
+}
+    
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+    
+.contact-us {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+    
+.contact-us img {
+    width: 20px;  
+    height: 20px;
+    color: green;
+}
+    
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+}
+    
+.profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+    
+.logout {
+    padding: 5px 10px;
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card {
+      width: 40%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 50px auto;
+      
+    }
+
+    .dropdown {
+      margin-bottom: 20px;
+    }
+
+    .limit-section {
+      margin-bottom: 20px;
+    }
+
+    .limit-section h4 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease-in-out;
+    }
+
+    #harian {
+      width: 20%;
+      background-color: #4CAF50;
+    }
+
+    #mingguan {
+      width: 50%;
+      background-color: #4CAF50;
+    }
+
+    #bulanan {
+      width: 80%;
+      background: #4CAF50;
+    }
+
+    .limit-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+    }
+
+    .dropdown {
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .dropdown-form {
+      display: none;
+      position: absolute;
+      margin-top: 25px;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      z-index: 1000;
+      padding: 15px;
+      width: 600px;
+    }
+
+    .dropdown-form input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .dropdown-form button {
+      width: 100%;
+      padding: 8px;
+      background-color: #800000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-form button:hover {
+      background-color: #800000;
+    }
+
+</style>
+
+
+<body>
+    <!-- BAGIAN HEADER -->
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span class="app-name font-bold" id="appName">Tel-U
+                Finance</span>
+        </div>
+
+        <nav class="navigation">
+            <a href="beranda.html" class="active" style="font-weight: bold;">BERANDA</a>
+            <a href="notifikasi.html" style="font-weight: bold;">NOTIFIKASI</a>
+            <a href="pengaturan.html" style="font-weight: bold;">PENGATURAN</a>
+        </nav>
+
+        <div class="right-section">
+            <a href="contactus.html" class="contact-us" style="font-weight: bold;"><i
+                    class="bi bi-chat-left-dots-fill"
+                    style=" margin-right: 10px; color: green;"></i>CONTACT
+                US</a>
+            <div class="profile">
+                <img src="foto_alya.jpg" alt="Profile">
+                <span>MAHASISWA</span>
+            </div>
+            <button class="logout">LOGOUT</button>
+        </div>
+    </header>
+
+<!-- BAGIAN LIMIT BELANJA -->
+<div class="card">
+    <h2 style="color:#b71c1c; font-weight: bold; font-size: 16px;">Limit Belanja Kamu</h2>
+
+    <!-- <div class="dropdown">
+        <select id="timeframe">
+            <option value="harian">Harian</option>
+            <option value="mingguan">Mingguan</option>
+            <option value="bulanan">Bulanan</option>
+        </select>
+    </div> -->
+
+    <div class="limit-section" style="margin-top: 10px;">
+        <h4 class="dropdown">Harian</h4>
+        <div class="dropdown-form">
+          <label for="harian-limit">Masukkan Nominal:</label>
+          <input type="number" id="harian-limit" placeholder="Contoh: 20000">
+          <button onclick="updateLimit('harian')">Simpan</button>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="harian"></div>
+        </div>
+        <div class="limit-label">
+          <span>0</span><span>20.000</span><span>100.000</span>
+        </div>
+      </div>
+
+      <div class="limit-section">
+        <h4 class="dropdown">Mingguan</h4>
+        <div class="dropdown-form">
+          <label for="mingguan-limit">Masukkan Nominal:</label>
+          <input type="number" id="mingguan-limit" placeholder="Contoh: 50000">
+          <button onclick="updateLimit('mingguan')">Simpan</button>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="mingguan"></div>
+        </div>
+        <div class="limit-label">
+          <span>0</span><span>50.000</span><span>100.000</span>
+        </div>
+      </div>
+    
+      <div class="limit-section">
+        <h4 class="dropdown">Bulanan</h4>
+        <div class="dropdown-form">
+          <label for="bulanan-limit">Masukkan Nominal:</label>
+          <input type="number" id="bulanan-limit" placeholder="Contoh: 80000">
+          <button onclick="updateLimit('bulanan')">Simpan</button>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="bulanan"></div>
+        </div>
+        <div class="limit-label">
+          <span>0</span><span>50.000</span><span>100.000</span>
+        </div>
+      </div>
+</div>
+
+
+<script>
+    // Menampilkan atau menyembunyikan dropdown form saat user mengklik h4
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      dropdown.addEventListener('click', () => {
+        const form = dropdown.nextElementSibling;
+        form.style.display = form.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  
+    // Fungsi untuk memperbarui progress bar berdasarkan input nominal
+    function updateLimit(type) {
+      const input = document.getElementById(`${type}-limit`); // Input field
+      const progress = document.getElementById(type); // Progress bar
+  
+      // Pastikan input tidak kosong atau bernilai negatif
+      if (input.value && input.value >= 0) {
+        // Hitung persentase berdasarkan skala contoh 100.000 = 100%
+        const maxLimit = 100000; // Batas maksimal (contoh)
+        const value = Math.min(100, (input.value / maxLimit) * 100); // Persentase
+        progress.style.width = `${value}%`; // Perbarui lebar progress bar
+  
+        // Tutup dropdown setelah simpan
+        input.closest('.dropdown-form').style.display = 'none';
+        input.value = ''; // Reset input
+      } else {
+        alert("Masukkan nominal yang valid!");
+      }
+    }
+  
+    // Klik di luar elemen dropdown untuk menutup semua form
+    document.addEventListener('click', (e) => {
+      if (!e.target.matches('.dropdown, .dropdown-form, .dropdown-form *')) {
+        document.querySelectorAll('.dropdown-form').forEach(form => {
+          form.style.display = 'none';
+        });
+      }
+    });
+  
+    // Reset semua progress bar ke 0 saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.progress').forEach(progress => {
+        progress.style.width = '0%'; // Set lebar awal progress bar menjadi 0
+      });
+    });
+  </script>
+  
